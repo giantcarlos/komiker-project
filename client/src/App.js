@@ -12,39 +12,39 @@ function App() {
   const [ publishers, setPublishers ] = useState([]);
   const [ books, setBooks ] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("/me").then((response) => {
-  //     if (response.ok) {
-  //       response.json().then((user) => setUser(user))
-  //     }
-  //   })
-  // }, []);
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user))
+      }
+    })
+  }, []);
 
-  // if (user) {
-  //   <h2>Welcome, {user.usermame}!</h2>;
-  // } else {
-  //   <Login onLogin={setUser} />;
-  // }
+  if (user) {
+    <h2>Welcome, {user.usermame}!</h2>;
+  } else {
+    <Login onLogin={setUser} />;
+  }
   
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/publishers')
-  //   .then(res => res.json())
-  //   .then(data => setPublishers(data))
-  // }, [])
+  useEffect(() => {
+    fetch('/publishers')
+    .then(res => res.json())
+    .then(data => setPublishers(data))
+  }, [])
 
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/books')
-  //   .then(res => res.json())
-  //   .then(data => setBooks(data))
-  // }, [])
+  useEffect(() => {
+    fetch('/books')
+    .then(res => res.json())
+    .then(data => setBooks(data))
+  }, [])
 
   return (
     <div className="App">
       <NavBar />
       <Routes>
           <Route exact path="/" element={<Home />}/>
-          <Route exact path="/publishers" element={<Publishers />}/>
-          <Route exact path="/books" element={<Books />}/>
+          <Route exact path="/publishers" element={<Publishers publishers={publishers}/>}/>
+          <Route exact path="/books" element={<Books books={books}/>}/>
       </Routes>
     </div>
   );
