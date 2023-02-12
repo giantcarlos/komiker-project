@@ -8,8 +8,8 @@ import Books from './Components/Books';
 import './App.css';
 
 function App() {
-  // const [ user, setUser ] = useState(null);
-  // const [ publishers, setPublishers ] = useState([]);
+  const [ user, setUser ] = useState(null);
+  const [ publishers, setPublishers ] = useState([]);
   const [ books, setBooks ] = useState([]);
 
   // useEffect(() => {
