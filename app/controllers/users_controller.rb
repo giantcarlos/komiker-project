@@ -7,19 +7,19 @@ class UsersController < ApplicationController
         end
     
         def show
-            user = User.find_by(id: params[:id])
+            user = User.find_by(id: session[:user_id])
             render json: user, status: :found
         end
     
         def create
             user = User.create!( user_params )
             render json: user, status: :created
-        end
+        end 
     
         private
     
         def user_params
-            params.permit(:name)
+            params.permit(:username, :password)
         end
     
         def not_valid(invalid)
