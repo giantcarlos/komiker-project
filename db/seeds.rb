@@ -9,7 +9,7 @@
 dc = Publisher.create(name: "DC")
 marvel = Publisher.create(name: "Marvel")
 
-gian = User.create(username: "gian", password: "1234")
+gian = User.create(username: "gian", email: "gianfakeemail@gmail.com", password: "1234")
 
 Book.create(publisher_id: dc.id, user_id: gian.id, name: "Superman: Red Son", writer: "Mark Millar", edition: "Hardcover", image_url: "https://m.media-amazon.com/images/I/51Phw2M63RL._AC_SY1000_.jpg")
 
