@@ -2,10 +2,6 @@ class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :not_valid
     rescue_from ActiveRecord::RecordNotFound, with: :no_route
     
-        def index
-            render json: User.all, status: :ok
-        end
-    
         def show
             user = User.find_by(id: session[:user_id])
             render json: user, status: :found
@@ -13,6 +9,7 @@ class UsersController < ApplicationController
     
         def create
             user = User.create!( user_params )
+            session[:user_id] = user.id
             render json: user, status: :created
         end 
     
