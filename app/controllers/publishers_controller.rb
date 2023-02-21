@@ -23,7 +23,7 @@ class PublishersController < ApplicationController
         end
     
         def not_valid(invalid)
-            render json: { error: invalid.record.errors.full_messages }, status: 422
+            render json: { error: invalid.record.errors.full_messages }, status: unprocessable_entity
         end
     
         def no_route
