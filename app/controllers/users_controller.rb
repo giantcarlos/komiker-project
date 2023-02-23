@@ -1,30 +1,18 @@
 class UsersController < ApplicationController
-    rescue_from ActiveRecord::RecordInvalid, with: :not_valid
-    rescue_from ActiveRecord::RecordNotFound, with: :no_route
     
-        def show
-            user = User.find_by(id: session[:user_id])
-            render json: user, status: :found
-        end
-    
-        def create
-            user = User.create!( user_params )
-            session[:user_id] = user.id
+    def create
+        user = User.create!( user_params )
+        if user.valid?
             render json: user, status: :created
-        end 
-    
-        private
-    
-        def user_params
-            params.permit(:username, :password)
+        else    
+            render json: { errors: user.error.full_messages }, status: :unprocessable_entity
         end
+    end 
     
-        def not_valid(invalid)
-            render json: { error: invalid.record.errors.full_messages }, status: unprocessable_entity
-        end
+    private
     
-        def no_route
-            render json: {error: "User not found"}, status: :not_found
-        end
+    def user_params
+        params.permit(:username, :password)
+    end
     
 end
