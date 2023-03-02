@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import Home from './Components/Home';
-import Login from './Components/Login';
 import Publishers from './Components/Publishers';
 import Books from './Components/Books';
 import './App.css';
@@ -19,12 +18,6 @@ function App() {
       }
     })
   }, []);
-
-  if (user) {
-    <h2>Welcome, {user.usermame}!</h2>;
-  } else {
-    <Login onLogin={setUser} />;
-  }
   
   useEffect(() => {
     fetch('/publishers')
@@ -42,7 +35,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-          <Route exact path="/" element={<Home />}/>
+          <Route exact path="/" element={<Home user={user} setUser={setUser}/>}/>
           <Route exact path="/publishers" element={<Publishers publishers={publishers}/>}/>
           <Route exact path="/books" element={<Books books={books}/>}/>
       </Routes>
