@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 function Login({ setUser }) {
   const [ username, setUsername ] = useState("");
   const [ password, setPassword ] = useState("");
+  const [ errors, setErrors ] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -15,6 +16,8 @@ function Login({ setUser }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user))
+      } else {
+        r.json().then((err) => setErrors(err.errors));
       }
     })
   }
@@ -40,7 +43,10 @@ function Login({ setUser }) {
           />
         </label>
       </div>
-      <button className="formBtn" type="submit">Login</button>
+      {errors && (
+      <p>{errors.message}</p>
+      )}
+      <button className="formBtn" type="submit">L O G I N</button>
     </form>
   );
 }

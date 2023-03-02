@@ -79,9 +79,9 @@ nav .loginBtn:hover {
 
 .formBtn {
   font-family: inherit;
-  max-width: 200rem;
-  padding: .25rem;
+  padding: .3rem 2rem;
   background-color: white;
+  margin-bottom: .5rem;
 }
 
 .formBtn:hover, .formBtn:focus {
