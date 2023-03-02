@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar user={user} setUser={setUser} />
       <Routes>
           <Route exact path="/" element={<Home user={user} setUser={setUser}/>}/>
           <Route exact path="/publishers" element={<Publishers publishers={publishers}/>}/>
