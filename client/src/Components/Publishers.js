@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import Login from './Login';
 
-function Publishers() {
+function Publishers({ user, setUser }) {
+  if (!user) return <Login setUser={setUser} />;
+
   return (
     <div>Publishers</div>
   )

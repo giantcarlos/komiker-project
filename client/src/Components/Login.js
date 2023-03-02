@@ -20,23 +20,27 @@ function Login({ setUser }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="loginForm" onSubmit={handleSubmit}>
       <h2>Log in to your Komiker account</h2>
-      <label htmlFor="username">Username: </label>
-      <input 
-        type="text"
-        id="username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <label htmlFor="password">Password: </label>
-      <input 
-        type="text"
-        id="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit">Login</button>
+      <div className="formText">
+        <label htmlFor="username">Username: 
+          <input 
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </label>
+        <label htmlFor="password">Password: 
+          <input 
+            type="text"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </label>
+      </div>
+      <button className="formBtn" type="submit">Login</button>
     </form>
   );
 }

@@ -42,7 +42,7 @@ nav a:hover {
 }
 
 nav .loginBtn {
-  font-family: monospace;
+  font-family: inherit;
   border: none;
   font-size: 1.2rem;
   background-color: #fff;
@@ -54,4 +54,46 @@ nav .loginBtn {
 
 nav .loginBtn:hover {
   color: #bbb;
+}
+
+.loginForm {
+  margin: 0 auto;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  max-width: 600px;
+  padding: 1rem;
+  text-align: center;
+  background: white;
+  border-radius: .25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 2);
+}
+
+.formText {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2.25rem;
+  text-align: left;
+  line-height: 1.25;
+}
+
+.formBtn {
+  font-family: inherit;
+  max-width: 200rem;
+  padding: .25rem;
+  background-color: white;
+}
+
+.formBtn:hover, .formBtn:focus {
+  background: #ddd;
+  color: #111;
+  cursor: pointer;
+}
+
+input {
+  font-size: 1rem;
+  color: inherit;
+  width: 100%;
+  padding: .4rem 5px;
+  margin: .4rem 0;
 }
