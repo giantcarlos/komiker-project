@@ -44,8 +44,8 @@ function Login({ setUser }) {
           />
         </label>
       </div>
-      {errors ? <p className="errors">{errors}</p> : null}
       <button className="formBtn" type="submit">L O G I N</button>
+      {errors ? <p className="errors">{errors}</p> : null}
     </form>
   );
 }
