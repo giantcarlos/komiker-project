@@ -4,6 +4,7 @@ import NavBar from './Components/NavBar';
 import Home from './Components/Home';
 import Publishers from './Components/Publishers';
 import Books from './Components/Books';
+import SignUp from './Components/SignUp';
 import './App.css';
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <Routes>
           <Route exact path="/" element={<Home user={user} setUser={setUser}/>}/>
+          <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} publishers={publishers}/>}/>
           <Route exact path="/books" element={<Books user={user} setUser={setUser} books={books}/>}/>
       </Routes>
