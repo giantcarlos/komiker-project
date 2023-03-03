@@ -97,3 +97,7 @@ input {
   padding: .4rem 5px;
   margin: .4rem 0;
 }
+
+.errors {
+  color: red;
+}
