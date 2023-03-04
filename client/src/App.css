@@ -58,8 +58,8 @@ nav .loginBtn:hover {
 
 .loginForm {
   margin: 0 auto;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
   max-width: 600px;
   padding: 1rem;
   text-align: center;
@@ -100,4 +100,8 @@ input {
 
 .errors {
   color: red;
+}
+
+div {
+  text-align: center;
 }
