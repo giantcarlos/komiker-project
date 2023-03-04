@@ -12,7 +12,7 @@ class PublishersController < ApplicationController
         end
     
         def create
-            publisher = Publisher.create!( publisher_params )
+            publisher = Publisher.create( publisher_params )
             render json: publisher, status: :created
         end
     

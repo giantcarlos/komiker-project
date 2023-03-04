@@ -12,7 +12,7 @@ class BooksController < ApplicationController
         end
     
         def create
-            book = Book.create!( book_params )
+            book = Book.create( book_params )
             render json: book, status: :created
         end
     
