@@ -3,7 +3,7 @@ class BooksController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :no_route
     
         def index
-            books = current_user.books
+            books = current_user.books.order(:name)
             render json: books, status: :found
         end
     

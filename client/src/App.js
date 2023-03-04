@@ -4,6 +4,7 @@ import NavBar from './Components/NavBar';
 import Home from './Components/Home';
 import Publishers from './Components/Publishers';
 import Books from './Components/Books';
+import BookPage from './Components/BookPage';
 import SignUp from './Components/SignUp';
 import './App.css';
 
@@ -24,13 +25,13 @@ function App() {
     fetch('/publishers')
     .then(res => res.json())
     .then(data => setPublishers(data))
-  }, [])
+  }, [setUser])
 
   useEffect(() => {
     fetch('/books')
     .then(res => res.json())
     .then(data => setBooks(data))
-  }, [])
+  }, [setUser])
 
   return (
     <div className="App">
@@ -40,6 +41,7 @@ function App() {
           <Route exact path="/signup" element={<SignUp setUser={setUser} />} />
           <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} publishers={publishers}/>}/>
           <Route exact path="/books" element={<Books user={user} setUser={setUser} books={books}/>}/>
+          <Route exact path="/books/:id" element={<BookPage />}/>
       </Routes>
     </div>
   );
