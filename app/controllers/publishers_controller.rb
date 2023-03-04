@@ -3,20 +3,25 @@ class PublishersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :no_route
     
         def index
-            render json: Publisher.all, status: :ok
+            publishers = current_user.publishers.order(:name)
+            render json: publishers, status: :found
         end
         
         def show
-            publisher = Publisher.find_by(id: params[:id])
+            publisher = current_user.publishers.find_by(id: params[:id])
             render json: publisher, status: :found
         end
     
         def create
-            publisher = Publisher.create( publisher_params )
+            publisher = current_user.publishers.create(publisher_params)
             render json: publisher, status: :created
         end
     
         private
+
+        def current_user
+            User.find_by(id: session[:user_id])
+        end
     
         def publisher_params
             params.permit(:name)
