@@ -11,7 +11,7 @@ function Publishers({ user, setUser, publishers, books }) {
   return (
     <div>
       <div className="counter">You own {books.length} titles from {publishers.length} different publishers.</div>
-      <div>{publisherList()}</div>
+      <div className="publisherList">{publisherList()}</div>
     </div>
   )
 }

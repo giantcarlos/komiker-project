@@ -160,3 +160,21 @@ div {
   font-size: 1.1rem;
   font-weight: bold;
  }
+
+ .publisherList {
+  margin-top: 1.5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-bottom: 3rem;
+  columns: 3;
+}
+
+.publisherList a {
+  color: #222;
+  text-decoration: none;
+  line-height: 1.65;
+}
+
+.publisherList a:hover {
+  color: #bbb
+}
