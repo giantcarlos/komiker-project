@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import Home from './Components/Home';
 import Publishers from './Components/Publishers';
+import PublisherPage from './Components/PublisherPage';
 import Books from './Components/Books';
 import BookPage from './Components/BookPage';
 import SignUp from './Components/SignUp';
@@ -39,9 +40,10 @@ function App() {
       <Routes>
           <Route exact path="/" element={<Home user={user} setUser={setUser}/>}/>
           <Route exact path="/signup" element={<SignUp setUser={setUser} />} />
-          <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} publishers={publishers}/>}/>
+          <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} publishers={publishers} books={books}/>}/>
           <Route exact path="/books" element={<Books user={user} setUser={setUser} books={books}/>}/>
           <Route exact path="/books/:id" element={<BookPage />}/>
+          <Route exact path="/publishers/:id" element={<PublisherPage />}/>
       </Routes>
     </div>
   );

@@ -1,11 +1,18 @@
 import React from 'react';
 import Login from './Login';
+import PublisherCard from './PublisherCard';
 
-function Publishers({ user, setUser }) {
+function Publishers({ user, setUser, publishers, books }) {
+
+  const publisherList = () => publishers.map((publisher, key) => <PublisherCard publisher={publisher} key={key} />)
+
   if (!user) return <Login setUser={setUser} />;
 
   return (
-    <div>Publishers</div>
+    <div>
+      <div className="counter">You own {books.length} titles from {publishers.length} different publishers.</div>
+      <div>{publisherList()}</div>
+    </div>
   )
 }
 
