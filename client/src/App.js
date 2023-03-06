@@ -23,16 +23,18 @@ function App() {
   }, []);
   
   useEffect(() => {
+    if (user) {
     fetch('/publishers')
     .then(res => res.json())
     .then(data => setPublishers(data))
-  }, [setUser])
+  }}, [user])
 
   useEffect(() => {
-    fetch('/books')
-    .then(res => res.json())
-    .then(data => setBooks(data))
-  }, [setUser])
+    if (user) {
+      fetch('/books')
+      .then(res => res.json())
+      .then(data => setBooks(data))
+  }}, [user])
 
   return (
     <div className="App">
