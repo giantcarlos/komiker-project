@@ -4,8 +4,10 @@ import NavBar from './Components/NavBar';
 import Home from './Components/Home';
 import Publishers from './Components/Publishers';
 import PublisherPage from './Components/PublisherPage';
+import PublisherForm from './Components/PublisherForm';
 import Books from './Components/Books';
 import BookPage from './Components/BookPage';
+import BookForm from './Components/BookForm';
 import SignUp from './Components/SignUp';
 import './App.css';
 
@@ -42,10 +44,12 @@ function App() {
       <Routes>
           <Route exact path="/" element={<Home user={user} setUser={setUser}/>}/>
           <Route exact path="/signup" element={<SignUp setUser={setUser} />} />
-          <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} publishers={publishers} books={books}/>}/>
           <Route exact path="/books" element={<Books user={user} setUser={setUser} books={books}/>}/>
           <Route exact path="/books/:id" element={<BookPage books={books}/>}/>
+          <Route exact path="/newbook" element={<BookForm />}/>
+          <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} publishers={publishers} books={books}/>}/>
           <Route exact path="/publishers/:id" element={<PublisherPage publishers={publishers}/>}/>
+          <Route exact path="/newpublisher" element={<PublisherForm />}/>
       </Routes>
     </div>
   );
