@@ -4,12 +4,12 @@ class PublishersController < ApplicationController
     
         def index
             publishers = current_user.publishers.order(:name)
-            render json: publishers, status: :found
+            render json: publishers, include: :books, status: :found
         end
         
         def show
             publisher = current_user.publishers.find_by(id: params[:id])
-            render json: publisher, status: :found
+            render json: publisher, include: :books, status: :found
         end
     
         def create

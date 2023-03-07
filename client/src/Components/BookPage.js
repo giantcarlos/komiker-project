@@ -12,6 +12,7 @@ function BookPage({ books }) {
         </div>
         <h2>{book.name}</h2>
         <div className="bookDetails">
+            <p>Publisher: {book.publisher.name}</p>
             <p>Writer: {book.writer}</p>
             <p>Edition: {book.edition}</p>
         </div>

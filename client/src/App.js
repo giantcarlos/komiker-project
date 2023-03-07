@@ -45,7 +45,7 @@ function App() {
           <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} publishers={publishers} books={books}/>}/>
           <Route exact path="/books" element={<Books user={user} setUser={setUser} books={books}/>}/>
           <Route exact path="/books/:id" element={<BookPage books={books}/>}/>
-          <Route exact path="/publishers/:id" element={<PublisherPage />}/>
+          <Route exact path="/publishers/:id" element={<PublisherPage publishers={publishers}/>}/>
       </Routes>
     </div>
   );

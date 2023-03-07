@@ -177,3 +177,24 @@ div {
 .publisherList a:hover {
   color: #bbb
 }
+
+.bookContainer {
+  max-width: 750px;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ .bookImg {
+  float: right;
+ }
+
+ .bookImg > img {
+  width: 300px;
+  max-height: auto;
+ }
+
+ .bookDetails {
+  margin-top: 2.5rem;
+  font-size: 1.1rem;
+ }
