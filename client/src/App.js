@@ -49,7 +49,7 @@ function App() {
           <Route exact path="/newbook" element={<BookForm />}/>
           <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} publishers={publishers} books={books}/>}/>
           <Route exact path="/publishers/:id" element={<PublisherPage publishers={publishers}/>}/>
-          <Route exact path="/newpublisher" element={<PublisherForm />}/>
+          <Route exact path="/publisherform" element={<PublisherForm />}/>
       </Routes>
     </div>
   );

@@ -14,7 +14,7 @@ function Publishers({ user, setUser, publishers, books }) {
       <div className="counter">You own {books.length} titles from {publishers.length} different publishers.</div>
       <div className="publisherList">{publisherList()}</div>
       <Link to={"/publisherform"}>
-        <button>Add a Publisher</button>
+        <button className="formBtn">Add a Publisher</button>
       </Link>
     </div>
   )
