@@ -1,7 +1,7 @@
 class PublishersController < ApplicationController
     
         def index
-            publishers = current_user.publishers.order(:name)
+            publishers = current_user.publishers.order(:name).uniq
             render json: publishers, status: :found
         end
         
