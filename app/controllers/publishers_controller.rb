@@ -1,6 +1,4 @@
 class PublishersController < ApplicationController
-    rescue_from ActiveRecord::RecordInvalid, with: :not_valid
-    rescue_from ActiveRecord::RecordNotFound, with: :no_route
     
         def index
             publishers = current_user.publishers.order(:name)
@@ -9,12 +7,20 @@ class PublishersController < ApplicationController
         
         def show
             publisher = current_user.publishers.find_by(id: params[:id])
-            render json: publisher, status: :found
+            if publisher
+                render json: publisher, status: :found
+            else
+                render json: { error: "Publisher not found" }, status: :not_found
+            end
         end
     
         def create
             publisher = current_user.publishers.create(publisher_params)
-            render json: publisher, status: :created
+            if publisher.valid?
+                render json: publisher, status: :created
+            else
+                render json: { errors: publisher.errors.full_messages }, status: unprocessable_entity
+            end
         end
     
         private
@@ -25,14 +31,6 @@ class PublishersController < ApplicationController
     
         def publisher_params
             params.permit(:name)
-        end
-    
-        def not_valid(invalid)
-            render json: { error: invalid.record.errors.full_messages }, status: unprocessable_entity
-        end
-    
-        def no_route
-            render json: {error: "Title not found"}, status: :not_found
         end
     
 end

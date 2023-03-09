@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-function PublisherForm({ setPublishers }) {
+function PublisherForm({ publishers, setPublishers }) {
     const navigate = useNavigate();
     const [ name, setName ] = useState("");
     const [ errors, setErrors ] = useState(null);
@@ -16,7 +16,7 @@ function PublisherForm({ setPublishers }) {
           body: JSON.stringify({ name }),
         }).then((r) => {
           if (r.ok) {
-            r.json().then((publisher) => setPublishers(publisher))
+            r.json().then((publisher) => setPublishers([...publishers, publisher]))
             navigate('/');
           } else {
             r.json().then((err) => setErrors(err.error));

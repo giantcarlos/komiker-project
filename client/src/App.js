@@ -29,14 +29,14 @@ function App() {
     fetch('/publishers')
     .then(res => res.json())
     .then(data => setPublishers(data))
-  }}, [user, publishers])
+  }}, [user])
 
   useEffect(() => {
     if (user) {
       fetch('/books')
       .then(res => res.json())
       .then(data => setBooks(data))
-  }}, [user, books])
+  }}, [user])
 
   return (
     <div className="App">
@@ -49,7 +49,7 @@ function App() {
           <Route exact path="/newbook" element={<BookForm />}/>
           <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} publishers={publishers} books={books}/>}/>
           <Route exact path="/publishers/:id" element={<PublisherPage publishers={publishers}/>}/>
-          <Route exact path="/publisherform" element={<PublisherForm setPublishers={setPublishers}/>}/>
+          <Route exact path="/publisherform" element={<PublisherForm publishers={publishers} setPublishers={setPublishers}/>}/>
       </Routes>
     </div>
   );
