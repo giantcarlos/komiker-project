@@ -46,7 +46,7 @@ function App() {
       <Routes>
           <Route exact path="/" element={<Home user={user} setUser={setUser}/>}/>
           <Route exact path="/signup" element={<SignUp setUser={setUser} />} />
-          <Route exact path="/books/:id" element={<BookPage />}/>
+          <Route exact path="/books/:id" element={<BookPage user={user}/>}/>
           <Route exact path="/books/:id/edit" element={<BookEdit />}/>
           <Route exact path="/books/new" element={<BookNew />}/>
           <Route exact path="/collection" element={<Collection user={user} setUser={setUser}  />}/>

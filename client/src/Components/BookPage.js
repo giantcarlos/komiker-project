@@ -1,9 +1,9 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-function BookPage({ books }) {
+function BookPage({ user }) {
     const { id } = useParams();
-    const book = books.find(book => book.id===parseInt(id))
+    const book = user.books.find(book => book.id===parseInt(id))
 
   return (
     <div className="bookContainer">

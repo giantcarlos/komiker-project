@@ -99,6 +99,15 @@ input {
   margin: .4rem 0;
 }
 
+.select {
+  font-size: 1rem;
+  color: inherit;
+  cursor: pointer;
+  width: 100%;
+  padding: .25rem 5px;
+  margin: .4rem 0;
+}
+
 .errors {
   color: red;
 }
