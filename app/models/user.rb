@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_many :books
-    has_many :publishers, through: :books
+    has_many :publishers, -> { distinct }, through: :books
 
     has_secure_password
 

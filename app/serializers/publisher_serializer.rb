@@ -1,4 +1,4 @@
 class PublisherSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name, :books
   has_many :books
 end

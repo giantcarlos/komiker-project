@@ -2,9 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import BookCard from './BookCard';
 
-function PublisherPage({ publishers }) {
+function PublisherPage({ userPublishers }) {
     const { id } = useParams();
-    const publisher = publishers.find(publisher => publisher.id===parseInt(id))
+    const publisher = userPublishers.find(publisher => publisher.id===parseInt(id))
 
     const bookCards = () => publisher.books.map((book, key) => <BookCard book={book} key={key}/>)
 

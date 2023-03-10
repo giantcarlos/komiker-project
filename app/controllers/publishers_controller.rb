@@ -1,21 +1,21 @@
 class PublishersController < ApplicationController
     
         def index
-            publishers = current_user.publishers.order(:name).uniq
+            publishers = Publisher.all.order(:name)
             render json: publishers, status: :found
         end
         
-        def show
-            publisher = current_user.publishers.find_by(id: params[:id])
-            if publisher
-                render json: publisher, status: :found
-            else
-                render json: { error: "Publisher not found" }, status: :not_found
-            end
-        end
+        # def show
+        #     publisher = current_user.publishers.find_by(id: params[:id])
+        #     if publisher
+        #         render json: publisher, status: :found
+        #     else
+        #         render json: { error: "Publisher not found" }, status: :not_found
+        #     end
+        # end
     
         def create
-            publisher = current_user.publishers.create(publisher_params)
+            publisher = Publisher.create(publisher_params)
             if publisher.valid?
                 render json: publisher, status: :created
             else
