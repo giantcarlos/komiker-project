@@ -14,9 +14,9 @@ function NavBar({ user, setUser }) {
   return (
     <nav>
         <div className="site-title">K O M I K E R</div>
-        <NavLink to="/" end>HOME</NavLink>
+        <NavLink to="/">HOME</NavLink>
         <NavLink to="/collection">COLLECTION</NavLink>
-        <NavLink to="/about">ABOUT</NavLink>
+        <NavLink to="/books/new">ADD TO COLLECTION</NavLink>
         <button className="loginBtn" onClick={handleLogout}>{user ? "LOGOUT" : ""}</button>
     </nav>
   )
