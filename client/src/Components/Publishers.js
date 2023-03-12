@@ -2,7 +2,7 @@ import React from 'react';
 import Login from './Login';
 import PublisherCard from './PublisherCard';
 
-function Collection({ user, setUser }) {
+function Publishers({ user, setUser }) {
 
   const publisherList = () => user.publishers.map((publisher, key) => <PublisherCard publisher={publisher} key={key} />)
 
@@ -16,4 +16,4 @@ function Collection({ user, setUser }) {
   )
 }
 
-export default Collection
+export default Publishers

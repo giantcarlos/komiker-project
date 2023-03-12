@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import Home from './Components/Home';
-import Collection from './Components/Collection';
+import Publishers from './Components/Publishers';
 import PublisherPage from './Components/PublisherPage';
 import PublisherForm from './Components/PublisherForm';
 import BookNew from './Components/BookNew';
@@ -49,7 +49,7 @@ function App() {
           <Route exact path="/books/:id" element={<BookPage user={user}/>}/>
           <Route exact path="/books/:id/edit" element={<BookEdit />}/>
           <Route exact path="/books/new" element={<BookNew />}/>
-          <Route exact path="/collection" element={<Collection user={user} setUser={setUser}  />}/>
+          <Route exact path="/collection" element={<Publishers user={user} setUser={setUser}  />}/>
           <Route exact path="/publishers/:id" element={<PublisherPage user={user} />}/>
           <Route exact path="/publishers/new" element={<PublisherForm publishers={publishers} setPublishers={setPublishers} />}/>
       </Routes>
