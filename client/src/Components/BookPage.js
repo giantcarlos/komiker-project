@@ -5,7 +5,7 @@ function BookPage({ books, setBooks, publishers, setPublishers }) {
     const navigate = useNavigate();
     const { id } = useParams();
     const book = books.find(book => book.id===parseInt(id))
-    const publisher = book.publisher.id
+    const publisher = book.publisher
 
     const handleDelete = () => {
       fetch(`/books/${id}`, 
