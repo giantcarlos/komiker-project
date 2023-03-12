@@ -13,7 +13,7 @@ function BookNew ({ user, setUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/book", {
+    fetch("/books", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

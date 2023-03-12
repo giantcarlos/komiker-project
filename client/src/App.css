@@ -207,3 +207,19 @@ div {
   margin-top: 2.5rem;
   font-size: 1.1rem;
  }
+
+ .bookBtn {
+  font-family: inherit;
+  padding: .3rem 2rem;
+  background-color: white;
+  margin-top: 10rem;
+  margin-bottom: .75rem;
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+.bookBtn:hover, .formBtn:focus {
+  background: #ddd;
+  color: #111;
+  cursor: pointer;
+}

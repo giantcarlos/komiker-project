@@ -1,9 +1,24 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 
-function BookPage({ user }) {
+function BookPage({ user, books, setBooks, publishers, setPublishers }) {
+    const navigate = useNavigate();
     const { id } = useParams();
     const book = user.books.find(book => book.id===parseInt(id))
+    const publisher = book.publisher.id
+
+    const handleDelete = () => {
+      fetch(`/books/${id}`, 
+          { method: "DELETE" })
+      .then(() => removeBook(id))
+      .then(() => navigate(`/books/${user.books.id}`));
+  }
+
+  const removeBook = id => {
+    setBooks(books.filter(book => book.id !==id));
+    const updatedPublisher = {...publisher, books: [...(publisher.books.filter(book => book.id !==id))]};
+    setPublishers(publishers.map(p => p.id===updatedPublisher.id ? updatedPublisher : p));
+}
 
   return (
     <div className="bookContainer">
@@ -16,6 +31,10 @@ function BookPage({ user }) {
             <p>Writer: {book.writer}</p>
             <p>Edition: {book.edition}</p>
         </div>
+        <Link to={`/books/${id}/edit`}>
+              <button className="bookBtn">Edit Book</button>
+        </Link>
+        <button className="bookBtn" onClick={handleDelete}>Delete Book</button>
     </div>
   )
 }

@@ -1,8 +1,98 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
-function BookEdit() {
+function BookEdit ({ user, setUser }) {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const book = user.books.find(book => book.id===parseInt(id))
+  const [ errors, setErrors ] = useState(null);
+  const [ formData, setFormData ] = useState({
+    name: "",
+    writer: "",
+    edition: "",
+    image_url: ""
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch(`/books/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ formData }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((book) => setUser([...user.books, book]))
+        navigate('/');
+      } else {
+        r.json().then((err) => setErrors(err.error));
+      }
+    })}
+
+  const handleChange = (e) => {
+    setFormData({
+        ...formData,
+        [e.target.id]: e.target.value
+    })}
+
   return (
-    <div>BookEdit</div>
+    <div>
+      <form className="loginForm" onSubmit={handleSubmit}>
+        <h3>Edit {book.title}</h3>
+        <div className="formText">
+          <label htmlFor="name">Title: 
+            <input 
+              type="textarea"
+              id="name"
+              value={formData.name}
+              onChange={(e) => handleChange(e.target.value)}
+              autoFocus={true}
+            />
+            </label>
+            <label htmlFor="image_url">Title: 
+            <input 
+              type="textarea"
+              id="image_url"
+              value={formData.image_url}
+              onChange={(e) => handleChange(e.target.value)}
+            />
+            </label>
+            <label htmlFor="writer">Writer: 
+            <input 
+              type="textarea"
+              id="writer"
+              value={formData.writer}
+              onChange={(e) => handleChange(e.target.value)}
+            />
+            </label>
+            <label htmlFor="edition">Edition: 
+            <select className="select"
+              type="textarea"
+              id="edition"
+              value={formData.edition}
+              onChange={(e) => handleChange(e.target.value)}
+            >
+              <option value=""></option>
+              <option value="Softcover">Softcover</option>
+              <option value="Hardcover">Hardcover</option>
+              <option value="Leatherbound">Leatherbound</option>
+              <option value="Box Set">Box Set</option>
+            </select>
+            </label>
+            <label htmlFor="image_url">Image URL: 
+            <input 
+              type="textarea"
+              id="image_url"
+              value={formData.image_url}
+              onChange={(e) => handleChange(e.target.value)}
+            />
+            </label>
+        </div>
+        <button className="formBtn" type="submit">S U B M I T</button>
+        {errors ? <p className="errors">{errors}</p> : null}
+      </form>
+    </div>
   )
 }
 
