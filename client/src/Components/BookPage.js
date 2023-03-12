@@ -1,17 +1,17 @@
 import React from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 
-function BookPage({ user, books, setBooks, publishers, setPublishers }) {
+function BookPage({ books, setBooks, publishers, setPublishers }) {
     const navigate = useNavigate();
     const { id } = useParams();
-    const book = user.books.find(book => book.id===parseInt(id))
+    const book = books.find(book => book.id===parseInt(id))
     const publisher = book.publisher.id
 
     const handleDelete = () => {
       fetch(`/books/${id}`, 
           { method: "DELETE" })
       .then(() => removeBook(id))
-      .then(() => navigate(`/books/${user.books.id}`));
+      .then(() => navigate(`/books/${books.id}`));
   }
 
   const removeBook = id => {
