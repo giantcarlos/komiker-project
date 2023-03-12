@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-function BookNew ({ user, setUser }) {
+function BookNew ({ books, setBooks }) {
   const navigate = useNavigate();
   const [ errors, setErrors ] = useState(null);
   const [ formData, setFormData ] = useState({
@@ -21,7 +21,7 @@ function BookNew ({ user, setUser }) {
       body: JSON.stringify({ formData }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((book) => setUser([...user.books, book]))
+        r.json().then((book) => setBooks([books, book]))
         navigate('/');
       } else {
         r.json().then((err) => setErrors(err.error));

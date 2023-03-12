@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-function BookEdit ({ user, setUser }) {
+function BookEdit ({ books, setBooks }) {
   const navigate = useNavigate();
   const { id } = useParams();
-  const book = user.books.find(book => book.id===parseInt(id))
+  const book = books.find(book => book.id===parseInt(id))
   const [ errors, setErrors ] = useState(null);
   const [ formData, setFormData ] = useState({
     name: "",
@@ -23,7 +23,7 @@ function BookEdit ({ user, setUser }) {
       body: JSON.stringify({ formData }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((book) => setUser([...user.books, book]))
+        r.json().then((book) => setBooks([...books, book]))
         navigate('/');
       } else {
         r.json().then((err) => setErrors(err.error));

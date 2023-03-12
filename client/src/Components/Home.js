@@ -2,10 +2,10 @@ import React from 'react'
 import Login from './Login';
 import BookCard from './BookCard';
 
-function Home({ user, setUser, books }) {
+function Home({ user, setUser, latest }) {
   if (!user) return <Login setUser={setUser} />;
 
-  const bookCards = () => books.map((book, key) => <BookCard book={book} key={key}/>)
+  const bookCards = () => latest.map((book, key) => <BookCard book={book} key={key}/>)
 
   
   return (
