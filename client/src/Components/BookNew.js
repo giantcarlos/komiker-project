@@ -65,14 +65,6 @@ function BookNew ({ user, setUser, books, setBooks }) {
               <option value="Box Set">Box Set</option>
             </select>
             </label>
-            <label htmlFor="image_url">Title: 
-            <input 
-              type="textarea"
-              id="image_url"
-              value={formData.image_url}
-              onChange={(e) => handleChange(e.target.value)}
-            />
-            </label>
             <label htmlFor="writer">Writer: 
             <input 
               type="textarea"

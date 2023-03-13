@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 function BookEdit ({ books, setBooks }) {
@@ -12,6 +12,10 @@ function BookEdit ({ books, setBooks }) {
     edition: "",
     image_url: ""
   });
+
+  useEffect(() => {
+    setFormData(book);
+  }, [book])
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -39,7 +43,7 @@ function BookEdit ({ books, setBooks }) {
   return (
     <div>
       <form className="loginForm" onSubmit={handleSubmit}>
-        <h3>Edit {book.title}</h3>
+        <h3>Edit {book.name}</h3>
         <div className="formText">
           <label htmlFor="name">Title: 
             <input 
@@ -48,14 +52,6 @@ function BookEdit ({ books, setBooks }) {
               value={formData.name}
               onChange={(e) => handleChange(e.target.value)}
               autoFocus={true}
-            />
-            </label>
-            <label htmlFor="image_url">Title: 
-            <input 
-              type="textarea"
-              id="image_url"
-              value={formData.image_url}
-              onChange={(e) => handleChange(e.target.value)}
             />
             </label>
             <label htmlFor="writer">Writer: 
