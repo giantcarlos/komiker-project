@@ -4,7 +4,7 @@ import BookCard from './BookCard';
 
 function PublisherPage({ publishers }) {
     const { id } = useParams();
-    const publisher = publishers.find(publishers => publishers.id===parseInt(id))
+    const publisher = publishers?.find(publishers => publishers.id===parseInt(id))
 
     const bookCards = () => publisher.books.map((book, key) => <BookCard book={book} key={key}/>)
 

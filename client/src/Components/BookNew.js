@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Login from './Login';
 
-function BookNew ({ books, setBooks }) {
+function BookNew ({ user, setUser, books, setBooks }) {
   const navigate = useNavigate();
   const [ errors, setErrors ] = useState(null);
   const [ formData, setFormData ] = useState({
@@ -33,6 +34,8 @@ function BookNew ({ books, setBooks }) {
         ...formData,
         [e.target.id]: e.target.value
     })}
+
+    if (!user) return <Login setUser={setUser} />;
 
   return (
     <div>

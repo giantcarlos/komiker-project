@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 function NavBar({ user, setUser }) {
 
@@ -17,7 +17,9 @@ function NavBar({ user, setUser }) {
         <NavLink to="/">HOME</NavLink>
         <NavLink to="/publishers">COLLECTION</NavLink>
         <NavLink to="/books/new">ADD TO COLLECTION</NavLink>
-        <button className="loginBtn" onClick={handleLogout}>{user ? "LOGOUT" : ""}</button>
+        <Link to={"/"}>
+          <button className="loginBtn" onClick={handleLogout}>{user ? "LOGOUT" : ""}</button>
+        </Link>
     </nav>
   )
 }
