@@ -24,7 +24,7 @@ class BooksController < ApplicationController
         end
     
         def destroy
-            book = current_user.book.find_by(id: params[:id])
+            book = current_user.books.find_by(id: params[:id])
             book.destroy
             head :no_content
         end
