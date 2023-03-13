@@ -47,7 +47,7 @@ function BookNew ({ user, setUser, books, setBooks }) {
               type="textarea"
               id="name"
               value={formData.name}
-              onChange={(e) => handleChange(e.target.value)}
+              onChange={handleChange}
               autoFocus={true}
             />
             </label>
@@ -56,7 +56,7 @@ function BookNew ({ user, setUser, books, setBooks }) {
               type="textarea"
               id="publisher"
               value={formData.edition}
-              onChange={(e) => handleChange(e.target.value)}
+              onChange={handleChange}
             >
               <option value=""></option>
               <option value="Softcover">Softcover</option>
@@ -70,7 +70,7 @@ function BookNew ({ user, setUser, books, setBooks }) {
               type="textarea"
               id="writer"
               value={formData.writer}
-              onChange={(e) => handleChange(e.target.value)}
+              onChange={handleChange}
             />
             </label>
             <label htmlFor="edition">Edition: 
@@ -78,7 +78,7 @@ function BookNew ({ user, setUser, books, setBooks }) {
               type="textarea"
               id="edition"
               value={formData.edition}
-              onChange={(e) => handleChange(e.target.value)}
+              onChange={handleChange}
             >
               <option value=""></option>
               <option value="Softcover">Softcover</option>
@@ -92,7 +92,7 @@ function BookNew ({ user, setUser, books, setBooks }) {
               type="textarea"
               id="image_url"
               value={formData.image_url}
-              onChange={(e) => handleChange(e.target.value)}
+              onChange={handleChange}
             />
             </label>
         </div>
