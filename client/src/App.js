@@ -15,6 +15,7 @@ function App() {
   const [ user, setUser ] = useState(null);
   const [ publishers, setPublishers ] = useState([]);
   const [ books, setBooks ] = useState([]);
+  // const [ allPublishers, setAllPublishers ] = useStae([]);
   const [ latest, setLatest ] = useState([]);
 
   useEffect(() => {
@@ -22,8 +23,8 @@ function App() {
       if (response.ok) {
         response.json().then((user) => {
           setUser(user)
-          setBooks(user?.books)
-          setPublishers(user?.publishers)
+          setBooks(user.books)
+          setPublishers(user.publishers)
         })
       }
     })
