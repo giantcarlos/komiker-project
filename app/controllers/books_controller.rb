@@ -18,7 +18,7 @@ class BooksController < ApplicationController
         end
     
         def update
-            book = current_user.book.find_by(id: params[:id])
+            book = current_user.books.find_by(id: params[:id])
             book.update(book_params)
             render json: book
         end
@@ -30,13 +30,9 @@ class BooksController < ApplicationController
         end
     
         private
-    
-        def current_user
-            User.find_by(id: session[:user_id])
-        end
         
         def book_params
-            params.permit(:user_id, publisher_id, :name, :writer, :edition, :image_url)
+            params.permit(:user_id, :publisher_id, :name, :writer, :edition, :image_url)
         end
     
         def not_valid(invalid)

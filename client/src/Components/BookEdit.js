@@ -10,7 +10,8 @@ function BookEdit ({ books, setBooks }) {
     name: "",
     writer: "",
     edition: "",
-    image_url: ""
+    image_url: "",
+    publisher_id: book.publisher_id
   });
 
   useEffect(() => {
@@ -27,12 +28,16 @@ function BookEdit ({ books, setBooks }) {
       body: JSON.stringify({ formData }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((book) => setBooks([...books, book]))
+        r.json().then((data) => updateBook(data))
         navigate('/');
       } else {
         r.json().then((err) => setErrors(err.error));
       }
     })}
+
+  const updateBook = (data) => {
+    setBooks(books.map(book => book.id===data.id ? data : book));
+  }
 
   const handleChange = (e) => {
     setFormData({
