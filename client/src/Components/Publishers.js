@@ -2,9 +2,9 @@ import React from 'react';
 import Login from './Login';
 import PublisherCard from './PublisherCard';
 
-function Publishers({ user, setUser }) {
+function Publishers({ user, setUser, publishers }) {
 
-  const publisherList = () => user.publishers.map((publisher, key) => <PublisherCard publisher={publisher} key={key} />)
+  const publisherList = () => publishers.map((publisher, key) => <PublisherCard publisher={publisher} key={key} />)
 
   if (!user) return <Login setUser={setUser} />;
 
