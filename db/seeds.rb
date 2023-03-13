@@ -38,4 +38,6 @@ Book.create(publisher_id: image.id, user_id: gian.id, name: "The Complete Phonog
 
 Book.create(publisher_id: dc.id, user_id: salem.id, name: "V for Vendetta", writer: "Alan Moore", edition: "Hardcover", image_url: "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/810o0N-Z2OL._AC_UF1000,1000_QL80_.jpg")
 Book.create(publisher_id: topshelf.id, user_id: salem.id, name: "From Hell: Master Edition", writer: "Alan Moore", edition: "Hardcover", image_url: "https://m.media-amazon.com/images/I/512ADylHObL.jpg")
+Book.create(publisher_id: marvel.id, user_id: salem.id, name: "Darth Vader Vol.1", writer: "Kieron Gillen", edition: "Hardcover", image_url: "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/91xYYNaab+L.jpg")
+Book.create(publisher_id: marvel.id, user_id: salem.id, name: "Darth Vader Vol.2", writer: "Kieron Gillen", edition: "Hardcover", image_url: "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/512LWEHnUSL.jpg")
 Book.create(publisher_id: titan.id, user_id: salem.id, name: "Spawn: Creation", writer: "Todd McFarlane", edition: "Hardcover", image_url: "https://m.media-amazon.com/images/I/51ZQXM4HDFL._AC_UF1000,1000_QL80_.jpg")
