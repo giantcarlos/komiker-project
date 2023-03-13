@@ -29,7 +29,7 @@ function BookEdit ({ books, setBooks }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((data) => updateBook(data))
-        navigate('/books/${id}');
+        navigate(`/books/${id}`);
       } else {
         r.json().then((err) => setErrors(err.error));
       }
