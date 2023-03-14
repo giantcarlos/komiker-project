@@ -5,7 +5,7 @@ function BookPage({ books, setBooks, publishers, setPublishers }) {
     const navigate = useNavigate();
     const { id } = useParams();
     const book = books.find(book => book.id===parseInt(id))
-    const publisher = book?.publisher
+    const publisher = publishers.find(p => p.id===parseInt(book?.publisher_id))
 
     const handleDelete = () => {
       fetch(`/books/${id}`, 
@@ -16,8 +16,8 @@ function BookPage({ books, setBooks, publishers, setPublishers }) {
 
   const removeBook = id => {
     setBooks(books.filter(book => book.id !==id));
-    // const updatedPublisher = {...publisher, books: [...(publisher.books.filter(book => book.id !==id))]};
-    // setPublishers(publishers.map(p => p.id===updatedPublisher.id ? updatedPublisher : p));
+    const updatedPublisher = {...publisher, books: [...(publisher?.books.filter(book => book.id !==id))]};
+    setPublishers(publishers.map(p => p.id===updatedPublisher.id ? updatedPublisher : p));
 }
 
   return (
