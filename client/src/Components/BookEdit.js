@@ -11,7 +11,7 @@ function BookEdit ({ books, setBooks }) {
     writer: "",
     edition: "",
     image_url: "",
-    publisher_id: book.publisher_id
+    publisher_id: book?.publisher_id
   });
 
   useEffect(() => {
@@ -48,13 +48,13 @@ function BookEdit ({ books, setBooks }) {
   return (
     <div>
       <form className="loginForm" onSubmit={handleSubmit}>
-        <h3>Edit {book.name}</h3>
+        <h3>Edit {book?.name}</h3>
         <div className="formText">
           <label htmlFor="name">Title: 
             <input 
               type="textarea"
               id="name"
-              value={formData.name}
+              value={formData?.name}
               onChange={handleChange}
               autoFocus={true}
             />
@@ -63,7 +63,7 @@ function BookEdit ({ books, setBooks }) {
             <input 
               type="textarea"
               id="writer"
-              value={formData.writer}
+              value={formData?.writer}
               onChange={handleChange}
             />
             </label>
@@ -71,7 +71,7 @@ function BookEdit ({ books, setBooks }) {
             <select className="select"
               type="textarea"
               id="edition"
-              value={formData.edition}
+              value={formData?.edition}
               onChange={handleChange}
             >
               <option value=""></option>
@@ -85,7 +85,7 @@ function BookEdit ({ books, setBooks }) {
             <input 
               type="textarea"
               id="image_url"
-              value={formData.image_url}
+              value={formData?.image_url}
               onChange={handleChange}
             />
             </label>

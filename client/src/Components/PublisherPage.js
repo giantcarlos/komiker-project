@@ -6,11 +6,11 @@ function PublisherPage({ publishers }) {
     const { id } = useParams();
     const publisher = publishers.find(publishers => publishers.id===parseInt(id))
 
-    const bookCards = () => publisher.books.map((book, key) => <BookCard book={book} key={key}/>)
+    const bookCards = () => publisher?.books.map((book, key) => <BookCard book={book} key={key}/>)
 
   return (
     <div>
-      <h2 className="counter">You have {publisher.books.length} titles from {publisher.name}.</h2>
+      <h2 className="counter">You have {publisher?.books.length} titles from {publisher?.name}.</h2>
       <div className="cardGrid">{bookCards()}</div>
     </div>
   )
