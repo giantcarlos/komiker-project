@@ -15,7 +15,7 @@ function App() {
   const [ user, setUser ] = useState(null);
   const [ publishers, setPublishers ] = useState([]);
   const [ books, setBooks ] = useState([]);
-  // const [ allPublishers, setAllPublishers ] = useStae([]);
+  const [ allPublishers, setAllPublishers ] = useState([]);
   const [ latest, setLatest ] = useState([]);
 
   useEffect(() => {
@@ -30,12 +30,12 @@ function App() {
     })
   }, []);
   
-  // useEffect(() => {
-  //   if (user) {
-  //   fetch('/publishers')
-  //   .then(res => res.json())
-  //   .then(data => setPublishers(data))
-  // }}, [user])
+  useEffect(() => {
+    if (user) {
+    fetch('/publishers')
+    .then(res => res.json())
+    .then(data => setAllPublishers(data))
+  }}, [user])
 
   useEffect(() => {
     if (user) {
@@ -52,7 +52,7 @@ function App() {
           <Route exact path="/signup" element={<SignUp setUser={setUser} />} />
           <Route exact path="/books/:id" element={<BookPage books={books} setBooks={setBooks} publishers={publishers} setPublishers={setPublishers} />}/>
           <Route exact path="/books/:id/edit" element={<BookEdit books={books} setBooks={setBooks} />}/>
-          <Route exact path="/books/new" element={<BookNew books={books} setBooks={setBooks} user={user} setUser={setUser} />}/>
+          <Route exact path="/books/new" element={<BookNew books={books} setBooks={setBooks} user={user} setUser={setUser} allPublishers={allPublishers} setAllPublishers={setAllPublishers} />}/>
           <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} publishers={publishers} />}/>
           <Route exact path="/publishers/:id" element={<PublisherPage publishers={publishers} />}/>
           <Route exact path="/publishers/new" element={<PublisherForm publishers={publishers} setPublishers={setPublishers} />}/>

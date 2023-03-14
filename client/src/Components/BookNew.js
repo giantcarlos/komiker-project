@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Login from './Login';
 
-function BookNew ({ user, setUser, books, setBooks }) {
+function BookNew ({ user, setUser, books, setBooks, allPublishers, setAllPublishers }) {
   const navigate = useNavigate();
   const [ errors, setErrors ] = useState(null);
   const [ formData, setFormData ] = useState({
