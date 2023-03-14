@@ -11,7 +11,7 @@ function BookPage({ books, setBooks, publishers, setPublishers }) {
       fetch(`/books/${id}`, 
           { method: "DELETE" })
       .then(() => removeBook(id))
-      .then(() => navigate('/publishers/'));
+      .then(() => navigate(`/publishers/${publisher.id}`));
   }
 
   const removeBook = id => {
