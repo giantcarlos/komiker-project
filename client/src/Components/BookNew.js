@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Login from './Login';
 
 function BookNew ({ user, setUser, books, setBooks, publishers, setPublishers, allPublishers }) {
@@ -109,6 +109,7 @@ function BookNew ({ user, setUser, books, setBooks, publishers, setPublishers, a
         <button className="formBtn" type="submit">S U B M I T</button>
         {errors ? <p className="errors">{errors}</p> : null}
       </form>
+      <Link to={"/publishers/new"} className="signLink">Don't see a publisher on our list? Add one here.</Link>
     </div>
   )
 }
