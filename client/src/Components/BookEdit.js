@@ -25,7 +25,7 @@ function BookEdit ({ books, setBooks }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ formData }),
+      body: JSON.stringify(formData),
     }).then((r) => {
       if (r.ok) {
         r.json().then((data) => updateBook(data))
