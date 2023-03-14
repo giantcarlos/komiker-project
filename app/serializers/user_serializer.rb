@@ -1,20 +1,20 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :email
+  attributes :id, :username, :email, :publishers_userbooks
   has_many :books
-  has_many :publishers, through: :books
 
   def username
     object.username.capitalize
   end
 
-  # def user_books
-  #   object.publishers.map do |p| 
-  #     publisher_books=p.books.select {|b| b.user_id==object.id}
-  #     updated_publisher=p
-  #     # byebug
-  #     updated_publisher.books=publisher_books
-  #     updated_publisher
-  #   end
-  # end
+  def publishers_userbooks
+    adjusted_publishers = object.publishers.map do |p| 
+      np = {}
+      np[:name] = p.name
+      np[:id] = p.id
+      np[:books] = p.books.select {|b| b.user_id==object.id}
+      np
+    end
+    adjusted_publishers
+  end
 
 end

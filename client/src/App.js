@@ -24,7 +24,7 @@ function App() {
         response.json().then((user) => {
           setUser(user)
           setBooks(user.books)
-          setPublishers(user.publishers)
+          setPublishers(user.publishers_userbooks)
         })
       }
     })
@@ -53,7 +53,7 @@ function App() {
           <Route exact path="/books/:id" element={<BookPage books={books} setBooks={setBooks} publishers={publishers} setPublishers={setPublishers} />}/>
           <Route exact path="/books/:id/edit" element={<BookEdit books={books} setBooks={setBooks} />}/>
           <Route exact path="/books/new" element={<BookNew books={books} setBooks={setBooks} user={user} setUser={setUser} allPublishers={allPublishers} setAllPublishers={setAllPublishers} />}/>
-          <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} publishers={publishers} />}/>
+          <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} books={books} publishers={publishers} />}/>
           <Route exact path="/publishers/:id" element={<PublisherPage publishers={publishers} />}/>
           <Route exact path="/publishers/new" element={<PublisherForm publishers={publishers} setPublishers={setPublishers} />}/>
       </Routes>
