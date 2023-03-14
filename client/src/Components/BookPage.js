@@ -15,8 +15,8 @@ function BookPage({ books, setBooks, publishers, setPublishers }) {
   }
 
   const removeBook = id => {
-    setBooks(books.filter(book => book.id !==id));
-    const updatedPublisher = {...publisher, books: [...(publisher?.books.filter(book => book.id !==id))]};
+    setBooks(books.filter(book => book.id !=id));
+    const updatedPublisher = {...publisher, books: [...(publisher?.books.filter(book => book.id !=id))]};
     setPublishers(publishers.map(p => p.id===updatedPublisher.id ? updatedPublisher : p));
 }
 
