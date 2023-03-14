@@ -59,10 +59,6 @@ function BookNew ({ user, setUser, books, setBooks }) {
               onChange={handleChange}
             >
               <option value=""></option>
-              <option value="Softcover">Softcover</option>
-              <option value="Hardcover">Hardcover</option>
-              <option value="Leatherbound">Leatherbound</option>
-              <option value="Box Set">Box Set</option>
             </select>
             </label>
             <label htmlFor="writer">Writer: 
