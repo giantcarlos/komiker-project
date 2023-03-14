@@ -6,6 +6,8 @@ function BookNew ({ user, setUser, books, setBooks, allPublishers, setAllPublish
   const navigate = useNavigate();
   const [ errors, setErrors ] = useState(null);
   const [ formData, setFormData ] = useState({
+    publisher_id: "",
+    user_id: user?.id,
     name: "",
     writer: "",
     edition: "",
@@ -51,7 +53,7 @@ function BookNew ({ user, setUser, books, setBooks, allPublishers, setAllPublish
               autoFocus={true}
             />
             </label>
-            <label htmlFor="publisher">Publisher: 
+            <label htmlFor="publisher_id">Publisher: 
             <select className="select"
               type="textarea"
               id="publisher"
@@ -59,6 +61,11 @@ function BookNew ({ user, setUser, books, setBooks, allPublishers, setAllPublish
               onChange={handleChange}
             >
               <option value=""></option>
+              {allPublishers.map(p => (
+                <option key={p.id} value={p.id}>
+                  {p.name}
+                </option>
+              ))}
             </select>
             </label>
             <label htmlFor="writer">Writer: 
