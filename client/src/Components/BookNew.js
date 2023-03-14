@@ -21,11 +21,11 @@ function BookNew ({ user, setUser, books, setBooks, allPublishers, setAllPublish
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ formData }),
+      body: JSON.stringify(formData),
     }).then((r) => {
       if (r.ok) {
         r.json().then((book) => setBooks([books, book]))
-        navigate('/');
+        navigate('/publishers');
       } else {
         r.json().then((err) => setErrors(err.error));
       }
@@ -56,8 +56,8 @@ function BookNew ({ user, setUser, books, setBooks, allPublishers, setAllPublish
             <label htmlFor="publisher_id">Publisher: 
             <select className="select"
               type="textarea"
-              id="publisher"
-              value={formData.edition}
+              id="publisher_id"
+              value={formData.publisher_id}
               onChange={handleChange}
             >
               <option value=""></option>
