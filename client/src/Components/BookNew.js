@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Login from './Login';
 
-function BookNew ({ user, setUser, books, setBooks, allPublishers, setAllPublishers }) {
+function BookNew ({ user, setUser, books, setBooks, publishers, setPublishers, allPublishers }) {
   const navigate = useNavigate();
   const [ errors, setErrors ] = useState(null);
   const [ formData, setFormData ] = useState({
@@ -24,12 +24,19 @@ function BookNew ({ user, setUser, books, setBooks, allPublishers, setAllPublish
       body: JSON.stringify(formData),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((book) => setBooks([books, book]))
+        r.json().then((data) => addBook(data))
         navigate('/publishers');
       } else {
         r.json().then((err) => setErrors(err.error));
       }
     })}
+
+    const addBook = (data) => {
+      setBooks([...books, data])
+      const publisher = publishers.find(p => p.id===parseInt(data.publisher_id))
+      const updatedPublisher = {...publisher, books: [...publisher.books, data]}
+      setPublishers(publishers.map(p => p.id===updatedPublisher.id ? updatedPublisher : p))
+    }
 
   const handleChange = (e) => {
     setFormData({
@@ -37,7 +44,7 @@ function BookNew ({ user, setUser, books, setBooks, allPublishers, setAllPublish
         [e.target.id]: e.target.value
     })}
 
-    if (!user) return <Login setUser={setUser} />;
+    if (!user) return <Login setUser={setUser} setPublishers={setPublishers} setBooks={setBooks} />;
 
   return (
     <div>

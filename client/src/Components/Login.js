@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-function Login({ setUser }) {
+function Login({ setUser, setBooks, setPublishers }) {
   const navigate = useNavigate();
   const [ username, setUsername ] = useState("");
   const [ password, setPassword ] = useState("");
@@ -17,7 +17,11 @@ function Login({ setUser }) {
       body: JSON.stringify({ username, password }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user))
+        r.json().then((user) => {
+          setUser(user)
+          setBooks(user.books)
+          setPublishers(user.publishers_userbooks)
+        })
         navigate('/');
       } else {
         r.json().then((err) => setErrors(err.error));

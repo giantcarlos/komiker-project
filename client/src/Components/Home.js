@@ -2,8 +2,8 @@ import React from 'react'
 import Login from './Login';
 import BookCard from './BookCard';
 
-function Home({ user, setUser, latest }) {
-  if (!user) return <Login setUser={setUser} />;
+function Home({ user, setUser, setPublishers, setBooks, latest }) {
+  if (!user) return <Login setUser={setUser} setPublishers={setPublishers} setBooks={setBooks} />;
 
   const bookCards = () => latest.map((book, key) => <BookCard book={book} key={key}/>)
 
