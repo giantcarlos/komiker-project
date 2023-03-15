@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Login from './Login';
 
-function BookNew ({ user, setUser, books, setBooks, publishers, setPublishers, allPublishers }) {
+function BookNew ({ user, setUser, books, setBooks, publishers, setPublishers, allPublishers, latest, setLatest}) {
   const navigate = useNavigate();
   const [ errors, setErrors ] = useState(null);
   const [ formData, setFormData ] = useState({
@@ -34,8 +34,10 @@ function BookNew ({ user, setUser, books, setBooks, publishers, setPublishers, a
     const addBook = (data) => {
       setBooks([...books, data])
       const publisher = publishers.find(p => p.id===parseInt(data.publisher_id))
-      const updatedPublisher = {...publisher, books: [...publisher.books, data]}
+      const updatedPublisher = {...publisher, books: [...publisher?.books, data]}
       setPublishers(publishers.map(p => p.id===updatedPublisher.id ? updatedPublisher : p))
+      const updatedLatest = latest.slice(1)
+      setLatest([...updatedLatest, data])
     }
 
   const handleChange = (e) => {
