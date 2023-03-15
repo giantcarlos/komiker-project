@@ -27,7 +27,7 @@ function BookNew ({ user, setUser, books, setBooks, publishers, setPublishers, a
         r.json().then((data) => addBook(data))
         navigate('/publishers');
       } else {
-        r.json().then((err) => setErrors(err.error));
+        r.json().then((err) => setErrors(err.errors));
       }
     })}
 

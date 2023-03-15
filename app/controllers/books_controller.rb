@@ -13,13 +13,13 @@ class BooksController < ApplicationController
         end
     
         def create
-            book = current_user.books.create(book_params)
+            book = current_user.books.create!(book_params)
             render json: book, status: :created
         end
     
         def update
             book = current_user.books.find_by(id: params[:id])
-            book.update(book_params)
+            book.update!(book_params)
             render json: book
         end
     
@@ -36,7 +36,7 @@ class BooksController < ApplicationController
         end
     
         def not_valid(invalid)
-            render json: { error: invalid.record.errors.full_messages }, status: unprocessable_entity
+            render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
         end
     
         def no_route

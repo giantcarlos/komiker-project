@@ -31,7 +31,7 @@ function BookEdit ({ books, setBooks }) {
         r.json().then((data) => updateBook(data))
         navigate(`/books/${id}`);
       } else {
-        r.json().then((err) => setErrors(err.error));
+        r.json().then((err) => setErrors(err.errors));
       }
     })}
 
@@ -91,7 +91,7 @@ function BookEdit ({ books, setBooks }) {
             </label>
         </div>
         <button className="formBtn" type="submit">S U B M I T</button>
-        {errors ? <p className="errors">{errors}</p> : null}
+        {errors ? (errors.map((error) => {return <p className="errors">{error}</p>})) : null}
       </form>
     </div>
   )
