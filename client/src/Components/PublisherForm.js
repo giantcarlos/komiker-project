@@ -19,7 +19,7 @@ function PublisherForm({ allPublishers, setAllPublishers }) {
             r.json().then((publisher) => setAllPublishers([...allPublishers, publisher]))
             navigate('/books/new');
           } else {
-            r.json().then((err) => setErrors(err.error));
+            r.json().then((err) => setErrors(err.errors));
           }
         })
       }
