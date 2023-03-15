@@ -10,8 +10,8 @@ function Home({ user, setUser, setPublishers, setBooks, latest }) {
   
   return (
     <div>
-      <div className="counter"><br />Welcome back {user.username}!<br /><br /><br /><br/>
-        <div>Here are the lastest titles in your collection:</div>
+      <div className="counter"><br />Welcome {user.username}!<br /><br /><br /><br/>
+        <div>{latest.length===0 ? "You don't have any books yet. Add some to your collection." : "Here are the lastest titles in your collection:"}</div>
       </div>
       <div className="cardGrid">{bookCards()}</div>
     </div>
