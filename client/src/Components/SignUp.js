@@ -25,7 +25,7 @@ function SignUp({ setUser }) {
                 r.json().then((user) => setUser(user));
                 navigate('/');
             } else {
-                r.json().then((err) => setErrors(err.error));
+                r.json().then((err) => setErrors(err.errors));
             }
         });
     }

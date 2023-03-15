@@ -6,11 +6,11 @@ class PublishersController < ApplicationController
         end
     
         def create
-            publisher = Publisher.create(publisher_params)
+            publisher = Publisher.create!(publisher_params)
             if publisher.valid?
                 render json: publisher, status: :created
             else
-                render json: { errors: publisher.errors.full_messages }, status: unprocessable_entity
+                render json: { errors: invalid.record.errors.full_messages }, status: unprocessable_entity
             end
         end
     
