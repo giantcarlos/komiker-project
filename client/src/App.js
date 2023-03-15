@@ -34,7 +34,7 @@ function App() {
     fetch('/publishers')
     .then(res => res.json())
     .then(data => setAllPublishers(data))
-  }}, [user])
+  }}, [])
 
   return (
     <div className="App">
