@@ -33,7 +33,11 @@ function BookNew ({ user, setUser, books, setBooks, publishers, setPublishers, a
 
     const addBook = (data) => {
       setBooks([...books, data])
-      const publisher = publishers.find(p => p.id===parseInt(data.publisher_id))
+      const publisher = allPublishers.find(p => p.id===data.publisher_id)
+      const publisherExists = publishers.findIndex(p => p.id ===data.publisher_id) > -1;
+        if (!publisherExists) {
+          publishers.push(publisher)
+        }
       const updatedPublisher = {...publisher, books: [...publisher?.books, data]}
       setPublishers(publishers.map(p => p.id===updatedPublisher.id ? updatedPublisher : p))
     }

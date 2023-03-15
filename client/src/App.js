@@ -43,7 +43,7 @@ function App() {
           <Route exact path="/" element={<Home user={user} setUser={setUser} setBooks={setBooks} setPublishers={setPublishers} books={books} />}/>
           <Route exact path="/signup" element={<SignUp setUser={setUser} />} />
           <Route exact path="/books/:id" element={<BookPage books={books} setBooks={setBooks} publishers={publishers} setPublishers={setPublishers} />}/>
-          <Route exact path="/books/:id/edit" element={<BookEdit books={books} setBooks={setBooks} />}/>
+          <Route exact path="/books/:id/edit" element={<BookEdit books={books} setBooks={setBooks} publishers={publishers} setPublishers={setPublishers}/>}/>
           <Route exact path="/books/new" element={<BookNew books={books} setBooks={setBooks} user={user} setUser={setUser} publishers={publishers} setPublishers={setPublishers} allPublishers={allPublishers} />}/>
           <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} books={books} publishers={publishers} setBooks={setBooks} setPublishers={setPublishers} />}/>
           <Route exact path="/publishers/:id" element={<PublisherPage publishers={publishers} />}/>

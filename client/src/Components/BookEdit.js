@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-function BookEdit ({ books, setBooks }) {
+function BookEdit ({ books, setBooks, publishers, setPublishers }) {
   const navigate = useNavigate();
   const { id } = useParams();
   const book = books.find(book => book.id===parseInt(id))
+  const publisher = publishers?.find(p => p.id===parseInt(book?.publisher_id))
   const [ errors, setErrors ] = useState(null);
   const [ formData, setFormData ] = useState({
     name: "",
@@ -37,6 +38,8 @@ function BookEdit ({ books, setBooks }) {
 
   const updateBook = (data) => {
     setBooks(books.map(book => book.id===data.id ? data : book));
+    const updatedPublisher = {...publisher, books: [...(publisher?.books.map(book => book.id===data.id ? data : book))]}
+    setPublishers(publishers.map(p => p.id===updatedPublisher.id ? updatedPublisher : p))
   }
 
   const handleChange = (e) => {
