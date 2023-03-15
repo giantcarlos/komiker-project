@@ -55,7 +55,7 @@ function App() {
           <Route exact path="/books/new" element={<BookNew books={books} setBooks={setBooks} user={user} setUser={setUser} publishers={publishers} setPublishers={setPublishers} allPublishers={allPublishers} />}/>
           <Route exact path="/publishers" element={<Publishers user={user} setUser={setUser} books={books} publishers={publishers} setBooks={setBooks} setPublishers={setPublishers} />}/>
           <Route exact path="/publishers/:id" element={<PublisherPage publishers={publishers} />}/>
-          <Route exact path="/publishers/new" element={<PublisherForm publishers={publishers} setPublishers={setPublishers} />}/>
+          <Route exact path="/publishers/new" element={<PublisherForm allPublishers={allPublishers} setAllPublishers={setAllPublishers} />}/>
       </Routes>
     </div>
   );
