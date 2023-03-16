@@ -32,7 +32,7 @@ class BooksController < ApplicationController
         private
         
         def book_params
-            params.permit(:user_id, :publisher_id, :name, :writer, :edition, :image_url)
+            params.permit(:publisher_id, :name, :writer, :edition, :image_url)
         end
     
         def not_valid(invalid)

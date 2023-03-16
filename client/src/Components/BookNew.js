@@ -7,7 +7,6 @@ function BookNew ({ user, setUser, books, setBooks, publishers, setPublishers, a
   const [ errors, setErrors ] = useState(null);
   const [ formData, setFormData ] = useState({
     publisher_id: "",
-    user_id: user?.id,
     name: "",
     writer: "",
     edition: "",
