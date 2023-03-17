@@ -2,11 +2,6 @@ class BooksController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :not_valid
     rescue_from ActiveRecord::RecordNotFound, with: :no_route
     
-        def index
-            books = current_user.books.last(5)
-            render json: books, status: :found
-        end
-    
         def show
             book = current_user.books.find_by(id: params[:id])
             render json: book, status: :found
