@@ -28,6 +28,7 @@ Komiker is a collection tracking application for graphic novels, comic books, an
 
 - Run client with npm start --prefix client on localhost:4000
 - Run server with rails s on localhost:3000
+- To login with an account with a full collection use username: gian, password: 1234
 
 
 
