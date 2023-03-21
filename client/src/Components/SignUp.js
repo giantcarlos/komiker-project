@@ -57,7 +57,7 @@ function SignUp({ setUser, setBooks, setPublishers }) {
           </label>
           <label htmlFor="password">Password: 
             <input 
-              type="text"
+              type="password"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
